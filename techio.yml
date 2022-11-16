@@ -10,5 +10,5 @@ projects:
     root: /examples/lesson2
     buildCommand: cargo build
     runner:
-      name: techio/rust
-      version: latest
+      name: rust
+      version: 1.65
