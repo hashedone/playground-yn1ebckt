@@ -4,3 +4,11 @@ plan:
   statement: markdowns/welcome.md
 - title: Creating empty contract
   statement: markdowns/empty-contract.md
+
+projects:
+  lesson2:
+    root: /examples/lesson2
+    buildCommand: cargo build
+    runner:
+      name: techio/rust
+      version: latest

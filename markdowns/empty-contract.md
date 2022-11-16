@@ -77,11 +77,7 @@ that the building command is a bit tedious. Hopefully, there is a simple way to
 make it more compact. We often do that by creating a `.cargo/config` file in a
 smart contract project, looking like this:
 
-```toml
-[alias]
-wasm = "build --release --target wasm32-unknown-unknown"
-wasm-debug = "build --target wasm32-unknown-unknown"
-```
+@[Setting up `wasm` subcommand]({"stubs": [".cargo/config"], "project": "lesson2"})
 
 This file creates two aliases for `cargo` utility - `wasm` for building a
 release wasm binary, and `wasm-debug` for a debug `wasm` output. I use a
@@ -112,8 +108,8 @@ counting_contract $ find ./target -name "*wasm"
 ./target/wasm32-unknown-unknown/debug/deps/counting_contract.wasm
 ```
 
-We have new artifacts - our release Wasm build. Now its time for a final check
-- let's validate if a Wasm binary is a valid CosmWasm smart contract:
+We have new artifacts - our release Wasm build. Now its time for a final check - let's
+validate if a Wasm binary is a valid CosmWasm smart contract:
 
 ```bash
 counting_contract $ cosmwasm-check ./target/wasm32-unknown-unknown/release/counting_contract.wasm
@@ -142,36 +138,11 @@ counting_contract $ cargo add cosmwasm-std
 If you are using older Rust version, you have to update your `Cargo.toml`
 manually:
 
-```toml
-[package]
-name = "counting-contract"
-version = "0.1.0"
-edition = "2021"
-
-[lib]
-crate-type = ["cdylib", "rlib"]
-
-[dependencies]
-cosmwasm-std = "1.0.0"
-```
+@[Preparing the build]({"stubs": ["Cargo.toml"], "project": "lesson2"})
 
 The next step is to create an entry point in `src/lib.rs`:
 
-```rust
-use cosmwasm_std::{
-    DepsMut, Env, MessageInfo, Empty, StdResult, Response, entry_point
-};
-
-#[entry_point]
-pub fn instantiate(
-	_deps: DepsMut,
-	_env: Env,
-	_info: MessageInfo,
-	_msg: Empty,
-) -> StdResult<Response> {
-	Ok(Response::new())
-}
-```
+@[Creating an entry point]({"stubs": ["src/lib.rs"], "project": "src/lib.rs"})
 
 Let's talk a bit about this. The entry point is the first function called by
 CosmWasm virtual machine when action is performed on a smart contract. It is
@@ -243,7 +214,7 @@ during the following lessons.
 As a practice after this lesson try to add two more entry points - `query` and
 `execute` using
 [`#[entry_point]`](https://docs.rs/cosmwasm-std/1.1.2/cosmwasm_std/attr.entry_point.html)
-documentation. For now entry points should do nothing for now.
+documentation. For now entry points should do nothing.
 
 ## Code repository
 
