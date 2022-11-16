@@ -1,4 +1,5 @@
 title: Custom Template
 plan:
 - title: Welcome
+  description: Setting up environment
   statement: markdowns/welcome.md
