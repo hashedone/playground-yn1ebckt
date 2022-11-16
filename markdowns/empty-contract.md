@@ -77,7 +77,7 @@ that the building command is a bit tedious. Hopefully, there is a simple way to
 make it more compact. We often do that by creating a `.cargo/config` file in a
 smart contract project, looking like this:
 
-@[Setting up `wasm` subcommand]({"stubs": [".cargo/config"], "project": "lesson2"})
+@[Setting up `wasm` subcommand]({"stubs": [".cargo/config"], command: "cargo wasm", "project": "lesson2"})
 
 This file creates two aliases for `cargo` utility - `wasm` for building a
 release wasm binary, and `wasm-debug` for a debug `wasm` output. I use a
@@ -138,11 +138,11 @@ counting_contract $ cargo add cosmwasm-std
 If you are using older Rust version, you have to update your `Cargo.toml`
 manually:
 
-@[Preparing the build]({"stubs": ["Cargo.toml"], "project": "lesson2"})
+@[Preparing the build]({"stubs": ["Cargo.toml"], "command": "cargo build", "project": "lesson2"})
 
 The next step is to create an entry point in `src/lib.rs`:
 
-@[Creating an entry point]({"stubs": ["src/lib.rs"], "project": "src/lib.rs"})
+@[Creating an entry point]({"stubs": ["src/lib.rs"], "command": "cargo build", "project": "lesson2"})
 
 Let's talk a bit about this. The entry point is the first function called by
 CosmWasm virtual machine when action is performed on a smart contract. It is
