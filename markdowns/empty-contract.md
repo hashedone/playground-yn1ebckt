@@ -1,5 +1,7 @@
 # Creating empty contract
 
+https://vimeo.com/731363909
+
 ## Preapare a project
 
 Now, having the environment ready, we can create a new smart contract project
